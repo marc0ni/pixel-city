@@ -12,6 +12,7 @@
 		382B45051F970A8300249C2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 382B45031F970A8300249C2D /* Main.storyboard */; };
 		382B45071F970A8300249C2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 382B45061F970A8300249C2D /* Assets.xcassets */; };
 		382B450A1F970A8300249C2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 382B45081F970A8300249C2D /* LaunchScreen.storyboard */; };
+		38D223361F9876B8003929BB /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D223351F9876B8003929BB /* DroppablePin.swift */; };
 		C2CF3C40B9A7E9EB378BB4AD /* Pods_pixel_city.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3952328E259EB197CECDA7D3 /* Pods_pixel_city.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		382B45061F970A8300249C2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		382B45091F970A8300249C2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		382B450B1F970A8300249C2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38D223351F9876B8003929BB /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DroppablePin.swift; path = "pixel-city/Utilities/DroppablePin.swift"; sourceTree = SOURCE_ROOT; };
 		3952328E259EB197CECDA7D3 /* Pods_pixel_city.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pixel_city.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		903519AEAB82A0B522D609E8 /* Pods-pixel-city.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pixel-city.release.xcconfig"; path = "Pods/Target Support Files/Pods-pixel-city/Pods-pixel-city.release.xcconfig"; sourceTree = "<group>"; };
 		98E2A44F88331C1EF1111762 /* Pods-pixel-city.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pixel-city.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pixel-city/Pods-pixel-city.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 		382B45121F970AD500249C2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				38D223351F9876B8003929BB /* DroppablePin.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				382B45021F970A8300249C2D /* MapVC.swift in Sources */,
+				38D223361F9876B8003929BB /* DroppablePin.swift in Sources */,
 				382B45001F970A8300249C2D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
