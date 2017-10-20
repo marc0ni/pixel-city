@@ -1,0 +1,4 @@
+# pixel-city -- a Flickr viewer
+This is another project from Udemy online university's course <i>iOS 11 & Swift 4: From Beginning to Paid Professional</i>. The app incorporates iOS' MapKit framework, using pin annotations to activate a pop view of photographs associated with a specific point on the map. Further, it also uses the Alamofire pod to make web requests from the Flickr web site and the Alamofire Image pod to retrieve those photos for use in a UICollectionView on the app.
+
+Instead of using a secondary modal view, this app employs a single view controller that holds both (a) the Map view and (b) a pop-up subview. When a pin is dropped on the map, the height measurement of the subview is animated to cover the lower portion of the map and display the UICollectionView. A downward swipe dismisses the subview.
