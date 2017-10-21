@@ -14,6 +14,7 @@ import AlamofireImage
 
 class MapVC: UIViewController, UIGestureRecognizerDelegate {
 
+    //Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var pullUpViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var pullUpView: UIView!
@@ -23,6 +24,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     let regionRadius: Double = 1000
     var screenSize = UIScreen.main.bounds
     
+    //Variables
     var spinner : UIActivityIndicatorView?
     var progressLbl: UILabel?
     
@@ -32,6 +34,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var imageUrlArray = [String]()
     var imageArray = [UIImage]()
     
+    //Views
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -108,6 +111,8 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
 
+    
+    //IBAction
     @IBAction func centerMapBtnWasPressed(_ sender: Any) {
         if authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse {
             centerMapOnUserLocation()
@@ -115,6 +120,8 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     }
 }
 
+
+//Extensions
 extension MapVC: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -175,6 +182,7 @@ extension MapVC: MKMapViewDelegate {
         }
     }
     
+    //Web requests
     func retrieveUrls (forAnnotation annotation: DroppablePin, handler: @escaping (_ status: Bool) -> ()) {
         imageUrlArray = []
         
@@ -214,6 +222,7 @@ extension MapVC: MKMapViewDelegate {
     }
 }
 
+//Location Manager
 extension MapVC: CLLocationManagerDelegate {
     func configureLocationServices() {
         if authorizationStatus == .notDetermined {
@@ -228,6 +237,7 @@ extension MapVC: CLLocationManagerDelegate {
     }
 }
 
+//Collection Extension
 extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
