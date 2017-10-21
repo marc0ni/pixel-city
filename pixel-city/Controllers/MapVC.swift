@@ -47,8 +47,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         collectionView?.register(PhotoCell.self, forCellWithReuseIdentifier: "photoCell")
         collectionView?.delegate = self
         collectionView?.dataSource = self
-        collectionView?.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1)
-        
+
         pullUpView.addSubview(collectionView!)
     }
     
@@ -84,7 +83,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         spinner = UIActivityIndicatorView()
         spinner?.center = CGPoint(x: (screenSize.width / 2) - ((spinner?.frame.width)! / 2), y: 150)
         spinner?.activityIndicatorViewStyle = .whiteLarge
-        spinner?.color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        spinner?.color = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         spinner?.startAnimating()
         collectionView?.addSubview(spinner!)
     }
@@ -99,7 +98,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         progressLbl = UILabel()
         progressLbl?.frame = CGRect(x: (screenSize.width / 2) - 120, y: 175, width: 240, height: 40)
         progressLbl?.font = UIFont(name: "Avenir Next", size: 14)
-        progressLbl?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        progressLbl?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         progressLbl?.textAlignment = .center
         
         collectionView?.addSubview(progressLbl!)
@@ -148,6 +147,11 @@ extension MapVC: MKMapViewDelegate {
         removeProgressLbl()
         cancelAllSessions()
         
+        imageUrlArray = []
+        imageArray = []
+        
+        collectionView?.reloadData()
+        
         animateViewUp()
         addSwipe()
         addSpinner()
@@ -168,7 +172,7 @@ extension MapVC: MKMapViewDelegate {
                     if finished {
                         self.removeSpinner()
                         self.removeProgressLbl()
-                        //reload collection view
+                        self.collectionView?.reloadData()
                     }
                 })
             }
@@ -244,13 +248,15 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // number of items in array
-        return 4
+        return imageArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell
-        return cell!
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
+        let imageFromIndex = imageArray[indexPath.row]
+        let imageView = UIImageView(image: imageFromIndex)
+        cell.addSubview(imageView)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
