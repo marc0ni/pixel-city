@@ -74,7 +74,12 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @objc func animateViewDown() {
+        removePin()
+        imageUrlArray.removeAll()
+        imageArray.removeAll()
+        collectionView?.reloadData()
         cancelAllSessions()
+        centerMapOnUserLocation()
         pullUpViewHeightConstraint.constant = 0
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
@@ -230,6 +235,7 @@ extension MapVC: MKMapViewDelegate {
 
 //Location Manager
 extension MapVC: CLLocationManagerDelegate {
+    
     func configureLocationServices() {
         if authorizationStatus == .notDetermined {
             locationManager.requestAlwaysAuthorization()
