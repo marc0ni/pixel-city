@@ -82,8 +82,8 @@
 				382B44FF1F970A8300249C2D /* AppDelegate.swift */,
 				382B45031F970A8300249C2D /* Main.storyboard */,
 				384F8EF51FA046C2000EA733 /* Contents.json */,
-				382B45081F970A8300249C2D /* LaunchScreen.storyboard */,
 				382B450B1F970A8300249C2D /* Info.plist */,
+				382B45081F970A8300249C2D /* LaunchScreen.storyboard */,
 			);
 			path = "pixel-city";
 			sourceTree = "<group>";
